@@ -63,3 +63,18 @@ void processInput(void)
         }
     }
 }
+
+// now we need a function to do the task of draw a circle here I sud draw function
+void drawCircle(int centerX, int centerY, int radius)
+{
+    for(int i =-radius;i<=radius;i++)
+    {
+        for(int j =-radius;j<=radius;j++)
+        {
+            if (i*i +j*j <=radius*radius)
+            {
+                SDL_RenderDrawPoint(renderer,centerX+i,centerY+j);
+            }
+        }
+    }
+}
