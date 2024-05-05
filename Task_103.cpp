@@ -64,8 +64,36 @@ void processInput() {
     }
 }
 
+// draw the circle
 
+void drawCircles() {
+    // Clear the window screen
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderClear(renderer);
 
+    // Draw the first circle
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+    for (int x = -CIRCLE_RADIUS; x <= CIRCLE_RADIUS; x++) {
+        for (int y = -CIRCLE_RADIUS; y <= CIRCLE_RADIUS; y++) {
+            if (x * x + y * y <= CIRCLE_RADIUS * CIRCLE_RADIUS) {
+                SDL_RenderDrawPoint(renderer, circle1X + x, circle1Y + y);
+            }
+        }
+    }
+
+    // Draw the second circle
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+    for (int x = -CIRCLE_RADIUS; x <= CIRCLE_RADIUS; x++) {
+        for (int y = -CIRCLE_RADIUS; y <= CIRCLE_RADIUS; y++) {
+            if (x * x + y * y <= CIRCLE_RADIUS * CIRCLE_RADIUS) {
+                SDL_RenderDrawPoint(renderer, circle2X + x, circle2Y + y);
+            }
+        }
+    }
+
+    // Present the rendered content
+    SDL_RenderPresent(renderer);
+}
 
 //write main function and initialize window and render into the main fuction
 int main(int argc, char **argv) {
@@ -77,7 +105,7 @@ int main(int argc, char **argv) {
     }
 
     window = SDL_CreateWindow(
-        "Circle Collision",
+        "Task_103 :project work- 1st Task",
         SDL_WINDOWPOS_UNDEFINED,
         SDL_WINDOWPOS_UNDEFINED,
         SCREEN_WIDTH,
