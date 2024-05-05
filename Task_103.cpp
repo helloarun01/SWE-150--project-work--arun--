@@ -95,6 +95,24 @@ void drawCircles() {
     SDL_RenderPresent(renderer);
 }
 
+
+// function for checking if collision is happen or not between them
+bool checkCollision() {
+    // Calculate distance between the centers of the circles
+    int distanceSquared = (circle1X - circle2X) * (circle1X - circle2X) +
+                          (circle1Y - circle2Y) * (circle1Y - circle2Y);
+    int radiusSquared = (CIRCLE_RADIUS + CIRCLE_RADIUS) * (CIRCLE_RADIUS + CIRCLE_RADIUS);
+
+    // Check if collision occurred
+    if (distanceSquared <= radiusSquared) {
+        return true;
+    }
+    return false;
+}
+
+
+
+
 //write main function and initialize window and render into the main fuction
 int main(int argc, char **argv) {
     gameIsRunning = true;
