@@ -114,3 +114,21 @@ void destroyWindow(void)
     SDL_DestroyWindow(window);
     SDL_Quit();
 }
+
+// now time to write the main fuction
+
+int main(int argc, char **argv)
+{
+    gameIsRunning = initializeWindow();
+    startTime = SDL_GetTicks();
+
+    while (gameIsRunning)
+    {
+        processInput();
+        draw();
+    }
+
+    destroyWindow();
+
+    return 0;
+}
