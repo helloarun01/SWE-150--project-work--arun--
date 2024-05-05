@@ -110,7 +110,7 @@ void draw(void)
 // write destroy function 
 void destroyWindow(void)
 {
-    SDL_DestroyRender(renderer);
+    SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
 }
