@@ -21,3 +21,35 @@ bool downKeyPressed = false;
 bool leftKeyPressed = false;       
 bool rightKeyPressed = false;
 
+//write main function and initialize window and render into the main fuction
+int main(int argc, char **argv) {
+    gameIsRunning = true;
+
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+        printf("Error: SDL failed to initialize\nSDL Error: '%s'\n", SDL_GetError());
+        return 1;
+    }
+
+    window = SDL_CreateWindow(
+        "Circle Collision",
+        SDL_WINDOWPOS_UNDEFINED,
+        SDL_WINDOWPOS_UNDEFINED,
+        SCREEN_WIDTH,
+        SCREEN_HEIGHT,
+        0);
+
+    if (!window) {
+        printf("Error: Failed to open window\nSDL Error: '%s'\n", SDL_GetError());
+        return 1;
+    }
+
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    if (!renderer) {
+        printf("Error: Failed to create renderer\nSDL Error: '%s'\n", SDL_GetError());
+        return 1;
+    }
+
+    startTime = SDL_GetTicks();
+
+    return 0;
+}
