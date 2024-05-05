@@ -176,5 +176,16 @@ int main(int argc, char **argv) {
 
     startTime = SDL_GetTicks();
 
+
+    while (gameIsRunning) {
+        processInput();
+        moveCircles();
+        if (checkCollision()) {
+            manageCollision();
+        }
+        drawCircles();
+        SDL_Delay(16); 
+    }
+
     return 0;
 }
