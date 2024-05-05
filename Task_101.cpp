@@ -78,3 +78,20 @@ void drawCircle(int centerX, int centerY, int radius)
         }
     }
 }
+
+//here write main draw function
+void draw(void)
+{
+    SDL_SetRenderDrawColor(renderer,0,0,0,255);
+    SDL_RenderClear(renderer);
+
+    int radius=circle_radius;
+    int centerX=SCREEN_WIDTH/2;
+    int centerY=SCREEN_HEIGHT/2;
+
+
+    SDL_SetRenderDrawColor(renderer,255,255,255,255);
+    drawCircle(centerX,centerY,radius);
+
+    SDL_RenderPresent(renderer);
+}
