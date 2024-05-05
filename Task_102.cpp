@@ -66,3 +66,43 @@ void processInput(void)
     }
 }
 
+
+// this function to create circle and change the radius respect to time 
+
+void drawCircle(int centerX, int centerY, int radius)
+{
+    for (int y = -radius; y <= radius; y++)
+    {
+        for (int x = -radius; x <= radius; x++)
+        {
+            if (x * x + y * y <= radius * radius)
+            {
+                SDL_RenderDrawPoint(renderer, centerX + x, centerY + y);
+            }
+        }
+    }
+}
+
+
+void draw(void)
+{
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderClear(renderer);
+
+    currentTime = SDL_GetTicks();
+    radius = INITIAL_RADIUS + (currentTime - startTime) / 10;
+    int centerX = SCREEN_WIDTH / 2;
+    int centerY = SCREEN_HEIGHT / 2;
+
+    if (centerX + radius >= SCREEN_WIDTH || centerX - radius <= 0 ||
+        centerY + radius >= SCREEN_HEIGHT || centerY - radius <= 0)
+    {
+        radius = INITIAL_RADIUS;
+        startTime = currentTime;
+    }
+
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    drawCircle(centerX, centerY, radius);
+
+    SDL_RenderPresent(renderer);
+}
