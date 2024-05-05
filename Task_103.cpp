@@ -20,6 +20,52 @@ bool upKeyPressed = false;
 bool downKeyPressed = false;
 bool leftKeyPressed = false;       
 bool rightKeyPressed = false;
+// process event function
+void processInput() {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+        switch (event.type) {
+            case SDL_QUIT:
+                gameIsRunning = false;
+                break;
+            case SDL_KEYDOWN:
+                switch (event.key.keysym.sym) {
+                    case SDLK_UP:
+                        upKeyPressed = true;
+                        break;
+                    case SDLK_DOWN:
+                        downKeyPressed = true;
+                        break;
+                    case SDLK_LEFT:
+                        leftKeyPressed = true;
+                        break;
+                    case SDLK_RIGHT:
+                        rightKeyPressed = true;
+                        break;
+                }
+                break;
+            case SDL_KEYUP:
+                switch (event.key.keysym.sym) {
+                    case SDLK_UP:
+                        upKeyPressed = false;
+                        break;
+                    case SDLK_DOWN:
+                        downKeyPressed = false;
+                        break;
+                    case SDLK_LEFT:
+                        leftKeyPressed = false;
+                        break;
+                    case SDLK_RIGHT:
+                        rightKeyPressed = false;
+                        break;
+                }
+                break;
+        }
+    }
+}
+
+
+
 
 //write main function and initialize window and render into the main fuction
 int main(int argc, char **argv) {
