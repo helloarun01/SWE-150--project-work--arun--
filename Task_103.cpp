@@ -132,6 +132,12 @@ bool checkCollision() {
 }
 
 
+// manage the collision
+void manageCollision()
+{
+    circle2X = SCREEN_WIDTH / 2;
+    circle2Y = 0;
+}
 
 
 //write main function and initialize window and render into the main fuction
