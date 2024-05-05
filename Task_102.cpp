@@ -25,7 +25,7 @@ bool initializeWindow(void)
     }
 
     window = SDL_CreateWindow(
-        "SDL Circle",
+        "Task_102 :project work- 1st Task",
         SDL_WINDOWPOS_UNDEFINED,
         SDL_WINDOWPOS_UNDEFINED,
         SCREEN_WIDTH,
@@ -93,12 +93,12 @@ void draw(void)
     radius = INITIAL_RADIUS + (currentTime - startTime) / 10;
     int centerX = SCREEN_WIDTH / 2;
     int centerY = SCREEN_HEIGHT / 2;
-
+                                                                           // // here the main changes from the 101task
     if (centerX + radius >= SCREEN_WIDTH || centerX - radius <= 0 ||
-        centerY + radius >= SCREEN_HEIGHT || centerY - radius <= 0)
+        centerY + radius >= SCREEN_HEIGHT || centerY - radius <= 0)        // when radius is big the window size it start from the first
     {
         radius = INITIAL_RADIUS;
-        startTime = currentTime;
+        startTime = currentTime;    //for start from the first
     }
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
@@ -120,11 +120,11 @@ void destroyWindow(void)
 int main(int argc, char **argv)
 {
     gameIsRunning = initializeWindow();
-    startTime = SDL_GetTicks();
+    startTime = SDL_GetTicks(); // count time from runnig the window
 
-    while (gameIsRunning)
+    while (gameIsRunning)    //game loop
     {
-        processInput();
+        processInput(); 
         draw();
     }
 
