@@ -96,6 +96,27 @@ void drawCircles() {
 }
 
 
+//for moving the one circle
+void moveCircles() {
+    // Move the first circle from left to right continuously
+    circle1X = (circle1X + CIRCLE_SPEED) % SCREEN_WIDTH;
+
+    // Move the second circle based on key inputs
+    if (upKeyPressed) {
+        circle2Y = (circle2Y - CIRCLE_SPEED + SCREEN_HEIGHT) % SCREEN_HEIGHT;
+    }
+    if (downKeyPressed) {
+        circle2Y = (circle2Y + CIRCLE_SPEED) % SCREEN_HEIGHT;
+    }
+    if (leftKeyPressed) {
+        circle2X = (circle2X - CIRCLE_SPEED + SCREEN_WIDTH) % SCREEN_WIDTH;
+    }
+    if (rightKeyPressed) {
+        circle2X = (circle2X + CIRCLE_SPEED) % SCREEN_WIDTH;
+    }
+}
+
+
 // function for checking if collision is happen or not between them
 bool checkCollision() {
     // Calculate distance between the centers of the circles
