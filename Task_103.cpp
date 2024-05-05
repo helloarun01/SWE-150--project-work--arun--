@@ -28,10 +28,10 @@ void processInput() {
             case SDL_QUIT:
                 gameIsRunning = false;
                 break;
-            case SDL_KEYDOWN:
+            case SDL_KEYDOWN:    // check are you press any key or not
                 switch (event.key.keysym.sym) {
                     case SDLK_UP:
-                        upKeyPressed = true;
+                        upKeyPressed = true;            // if press any key its asign true
                         break;
                     case SDLK_DOWN:
                         downKeyPressed = true;
@@ -44,7 +44,7 @@ void processInput() {
                         break;
                 }
                 break;
-            case SDL_KEYUP:
+            case SDL_KEYUP:                            // for not press key false
                 switch (event.key.keysym.sym) {
                     case SDLK_UP:
                         upKeyPressed = false;
