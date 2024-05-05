@@ -97,6 +97,14 @@ void draw(void)
 }
 
 
+// for close all function and releae all graphics and memmory
+void destroyWindow()
+{
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+}
+
 // now it time to wirte main function and call the all sub function
 int main(int argc, char **argv)
 {
@@ -109,5 +117,7 @@ int main(int argc, char **argv)
         draw();
     }
 
+// for close all function and releae all graphics and memmory
+    destroyWindow();
   return 0;  
 }
