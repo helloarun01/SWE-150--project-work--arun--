@@ -140,6 +140,12 @@ void manageCollision()
 }
 
 
+void destroyWindow() {
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+}
+
 //write main function and initialize window and render into the main fuction
 int main(int argc, char **argv) {
     gameIsRunning = true;
