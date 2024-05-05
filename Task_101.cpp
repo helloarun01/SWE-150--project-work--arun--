@@ -22,7 +22,7 @@ bool initializeWindow(void)
     }
 
     window=SDL_CreateWindow(
-        "Task_101 :project work- 1st Task",
+        "Task_101 :project work- 1st Task",   // its my window title project name
         SDL_WINDOWPOS_UNDEFINED,
         SDL_WINDOWPOS_UNDEFINED,
         SCREEN_WIDTH,
@@ -32,7 +32,7 @@ bool initializeWindow(void)
 
     if(!window)
     {
-        printf("error failed to open windoe\nsdl error is :'%s'",SDL_GetError());
+        printf("error failed to open windoe\nsdl error is :'%s'",SDL_GetError()); // this function return the actuall error
         return false;
     }
 
@@ -71,7 +71,7 @@ void drawCircle(int centerX, int centerY, int radius)
     {
         for(int j =-radius;j<=radius;j++)
         {
-            if (i*i +j*j <=radius*radius)
+            if (i*i +j*j <=radius*radius)  // circle create contion   X^2 + Y^2 = r^2
             {
                 SDL_RenderDrawPoint(renderer,centerX+i,centerY+j);
             }
@@ -82,18 +82,18 @@ void drawCircle(int centerX, int centerY, int radius)
 //here write main draw function
 void draw(void)
 {
-    SDL_SetRenderDrawColor(renderer,0,0,0,255);
-    SDL_RenderClear(renderer);
+    SDL_SetRenderDrawColor(renderer,0,0,0,255);  // you can think window is a CANVAS and rander is a paint brush here I 
+    SDL_RenderClear(renderer);                   // full canvas paint black to draw circle
 
     int radius=circle_radius;
-    int centerX=SCREEN_WIDTH/2;
+    int centerX=SCREEN_WIDTH/2;    // to create X and Y corrdinate at the mindle of window
     int centerY=SCREEN_HEIGHT/2;
 
 
-    SDL_SetRenderDrawColor(renderer,255,255,255,255);
+    SDL_SetRenderDrawColor(renderer,255,255,255,255);  // now paint the circle in white
     drawCircle(centerX,centerY,radius);
 
-    SDL_RenderPresent(renderer);
+    SDL_RenderPresent(renderer);  //show the paint on window
 }
 
 
