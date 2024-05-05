@@ -95,3 +95,19 @@ void draw(void)
 
     SDL_RenderPresent(renderer);
 }
+
+
+// now it time to wirte main function and call the all sub function
+int main(int argc, char **argv)
+{
+    gameIsRunning=initializeWindow();
+
+    // it is  main game loop
+    while(gameIsRunning)
+    {
+        processInput();
+        draw();
+    }
+
+  return 0;  
+}
