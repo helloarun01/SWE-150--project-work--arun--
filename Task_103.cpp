@@ -205,6 +205,7 @@ int main(int argc, char **argv) {
         moveCircles();
         if (checkCollision()) {
             manageCollision();
+            visualEffect();
         }
         drawCircles();
         SDL_Delay(16); 
