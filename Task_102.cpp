@@ -86,7 +86,7 @@ void drawCircle(int centerX, int centerY, int radius)
 
 void draw(void)
 {
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
     SDL_RenderClear(renderer);
 
     currentTime = SDL_GetTicks();
