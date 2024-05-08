@@ -20,6 +20,13 @@ bool upKeyPressed = false;
 bool downKeyPressed = false;
 bool leftKeyPressed = false;       
 bool rightKeyPressed = false;
+
+// Define sdl_color structure  to change the circles color
+SDL_Color circle1Color = {255, 0, 0, 255}; // Red
+SDL_Color circle2Color = {0, 0, 255, 255}; // Blue
+
+
+
 // process event function
 void processInput() {
     SDL_Event event;
@@ -72,7 +79,7 @@ void drawCircles() {
     SDL_RenderClear(renderer);
 
     // Draw the first circle
-    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+    SDL_SetRenderDrawColor(renderer, circle1Color.r, circle1Color.g, circle1Color.b, circle1Color.a);
     for (int x = -CIRCLE_RADIUS; x <= CIRCLE_RADIUS; x++) {
         for (int y = -CIRCLE_RADIUS; y <= CIRCLE_RADIUS; y++) {
             if (x * x + y * y <= CIRCLE_RADIUS * CIRCLE_RADIUS) {
@@ -82,7 +89,7 @@ void drawCircles() {
     }
 
     // Draw the second circle
-    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+    SDL_SetRenderDrawColor(renderer, circle2Color.r, circle2Color.g, circle2Color.b, circle2Color.a);
     for (int x = -CIRCLE_RADIUS; x <= CIRCLE_RADIUS; x++) {
         for (int y = -CIRCLE_RADIUS; y <= CIRCLE_RADIUS; y++) {
             if (x * x + y * y <= CIRCLE_RADIUS * CIRCLE_RADIUS) {
@@ -137,6 +144,22 @@ void manageCollision()
 {
     circle2X = SCREEN_WIDTH / 2;
     circle2Y = 0;
+}
+
+bool flage=true;
+void visualEffect() {
+    // Change the colors of the circles upon collision
+    
+    if(flage){
+        
+    circle1Color = {0, 255, 0, 255}; // Green
+    circle2Color = {255, 255, 0, 255}; // Yellow
+    }
+    else{
+        circle1Color = {255, 0, 0, 255}; // Red
+         circle2Color = {0, 0, 255, 255}; // Blue
+    }
+    flage=!flage;
 }
 
 
