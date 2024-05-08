@@ -204,7 +204,7 @@ int main(int argc, char **argv) {
         processInput();
         moveCircles();
         if (checkCollision()) {
-            manageCollision();
+            //manageCollision();                // you can uncomment this line check this for start the circle2 from begening
             visualEffect();
         }
         drawCircles();
