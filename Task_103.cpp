@@ -10,8 +10,6 @@
 bool gameIsRunning = false;
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
-Uint32 startTime;           //unit32 is data type of sdl
-Uint32 currentTime;
 int circle1X = 0; // x-coordinate of the first circle
 int circle1Y = SCREEN_HEIGHT / 2; // y-coordinate of the first circle
 int circle2X = SCREEN_WIDTH / 2; // x-coordinate of the second circle
@@ -197,7 +195,7 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    startTime = SDL_GetTicks();
+    
 
 
     while (gameIsRunning) {
